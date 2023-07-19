@@ -1,6 +1,7 @@
 from flask import Flask,request,render_template
 import numpy as np
 import pandas as pd
+import os
 
 from sklearn.preprocessing import StandardScaler
 from source.pipeline.predict_pipeline import CustomData,PredictPipeline
@@ -38,7 +39,7 @@ def predict_datapoint():
         print("Mid Prediction")
         result=predict_pipeline.predict(pred_df)
         print("after Prediction")
-        return render_template('home.html',result=result)
+        return render_template('home.html',result=result[0])
     
 
 if __name__=="__main__":
